@@ -41,7 +41,7 @@ st.sidebar.markdown("🌍 Global Disease Map")
 st.sidebar.markdown("🇮🇳 India Health Dashboard")
 st.sidebar.markdown("🚨 Outbreak Alerts")
 st.sidebar.markdown("📈 Forecasting & Trends")
-st.sidebar.markdown("🤖 AI Analyst")")
+st.sidebar.markdown("🤖 AI Analyst")
 
 st.sidebar.divider()
 st.sidebar.markdown("**Data Sources**")
