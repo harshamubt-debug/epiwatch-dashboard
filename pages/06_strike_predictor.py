@@ -253,17 +253,19 @@ if pred:
             fill="tozeroy", fillcolor=f"rgba(248,81,73,0.08)"
         ))
         # Strike window marker
-        fig_wave.add_vline(
-            x=str(pred["next_strike_date"].date()),
-            line_dash="dash", line_color=risk_color,
-            annotation_text=f"⚡ Predicted Strike",
-            annotation_font_color=risk_color,
-        )
-        fig_wave.add_vline(
-            x=str(datetime.now().date()),
-            line_dash="dash", line_color="#8b949e",
-            annotation_text="Today",
-            annotation_font_color="#8b949e",
+        max_y = max(future_vals + list(hist2["7day"].fillna(0)))
+fig_wave.add_trace(go.Scatter(
+    x=[pred["next_strike_date"], pred["next_strike_date"]],
+    y=[0, max_y],
+    mode="lines", name="Predicted Strike",
+    line=dict(color=risk_color, dash="dash", width=2),
+))
+fig_wave.add_trace(go.Scatter(
+    x=[datetime.now(), datetime.now()],
+    y=[0, max_y],
+    mode="lines", name="Today",
+    line=dict(color="#8b949e", dash="dash", width=1),
+))
         )
         fig_wave.update_layout(
             paper_bgcolor="rgba(0,0,0,0)",
