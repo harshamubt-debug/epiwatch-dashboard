@@ -7,6 +7,7 @@ import numpy as np
 st.set_page_config(page_title="Forecasting — EpiWatch", page_icon="📈", layout="wide")
 
 st.markdown("## 📈 Disease Forecasting & Trend Analysis")
+st.caption("COVID-19 historical trends + predictive modelling across 231 countries. Flu surveillance from CDC FluView.")
 st.caption("ML-powered predictions using Facebook Prophet + ARIMA. Data from CDC, Disease.sh & WHO.")
 
 from utils.data_fetcher import (get_country_historical, get_global_summary,
