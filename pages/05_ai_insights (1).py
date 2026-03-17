@@ -48,7 +48,7 @@ def build_context():
 # ── GEMINI API CALL ────────────────────────────────────────────────────────────
 def call_ai(messages, system_prompt):
     try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+       url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
         conversation = system_prompt + "\n\n"
         for msg in messages:
             role = "User" if msg["role"] == "user" else "Assistant"
