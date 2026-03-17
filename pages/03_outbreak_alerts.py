@@ -87,7 +87,8 @@ with col_feed:
             <div style="font-size:0.85rem;font-weight:600;color:#e6edf3;margin-bottom:8px">{title}</div>
             <div style="font-size:0.82rem;color:#c9d1d9;line-height:1.7;margin-bottom:8px">{summary if summary else "No additional details available."}</div>
             <div style="font-size:0.72rem;color:#6e7681;border-top:1px solid #30363d;padding-top:8px">
-                📡 <b style="color:#8b949e">Source:</b> {source} &nbsp;|&nbsp; 🕐 <b style="color:#8b949e">Date:</b> {date}
+              📡 <b style="color:#8b949e">Source:</b> {source} &nbsp;|&nbsp; 🕐 <b style="color:#8b949e">Date:</b> {date}
+&nbsp;|&nbsp; <a href="https://promedmail.org/promed-posts/" target="_blank" style="color:#58a6ff;text-decoration:none">View on ProMED →</a>
             </div>
             """, unsafe_allow_html=True)
 
