@@ -63,7 +63,7 @@ def simple_forecast(df, date_col, value_col, periods=90):
     return pd.concat([hist_forecast, fut_forecast], ignore_index=True)
 
 # ── CONTROLS ───────────────────────────────────────────────────────────────────
-tab1, tab2, tab3 = st.tabs(["🌍 Global Forecast", "🦠 Flu Surveillance", "📊 Multi-Disease Trends"])
+tab1, = st.tabs(["🦠 Flu Surveillance"])
 
 # ── TAB 1: Global Forecast ─────────────────────────────────────────────────────
 with tab1:
