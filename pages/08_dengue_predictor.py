@@ -8,8 +8,7 @@ from datetime import datetime, timedelta
 st.set_page_config(page_title="Dengue Predictor — EpiWatch", page_icon="🦟", layout="wide")
 
 st.markdown("## 🦟 Dengue Strike Predictor")
-st.caption("AI-powered seasonal dengue forecasting — predicting WHEN, WHERE and HOW HARD dengue will strike next.")
-
+st.caption("Seasonal dengue risk forecasting using monsoon calendars, WHO GHO data, and NVBDCP historical patterns. Predicting WHEN, WHERE and HOW HARD dengue will strike next.")
 # ── DENGUE PREDICTION ENGINE ───────────────────────────────────────────────────
 
 MONSOON_CALENDAR = {
