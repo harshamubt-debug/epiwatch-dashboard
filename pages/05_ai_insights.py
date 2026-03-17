@@ -13,12 +13,23 @@ from utils.data_fetcher import (get_global_summary, get_all_countries, get_top_c
                                  get_india_disease_burden, compute_risk_scores)
 
 # ── API KEY SETUP ──────────────────────────────────────────────────────────────
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-if not ANTHROPIC_API_KEY:
-    st.warning("⚠️ Set `ANTHROPIC_API_KEY` in your environment or Streamlit secrets to enable AI features.")
-    st.code('echo "ANTHROPIC_API_KEY=your_key_here" >> .env', language="bash")
-    st.info("Add to `.streamlit/secrets.toml`:\n```\nANTHROPIC_API_KEY = 'sk-ant-...'\n```")
-    ANTHROPIC_API_KEY = st.secrets.get("ANTHROPIC_API_KEY", "") if hasattr(st, "secrets") else ""
+GROK_API_KEY = st.secrets.get("GROK_API_KEY", "")
+def call_claude(messages, system_prompt):
+    import requests
+    headers = {
+        "Authorization": f"Bearer {GROK_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": "grok-beta",
+        "messages": [{"role": "system", "content": system_prompt}] + messages,
+        "max_tokens": 1500,
+    }
+    r = requests.post("https://api.x.ai/v1/chat/completions",
+                      json=payload, headers=headers, timeout=30)
+    if r.status_code == 200:
+        return r.json()["choices"][0]["message"]["content"]
+    return f"❌ Error: {r.text[:200]}"
 
 # ── SYSTEM CONTEXT BUILDER ─────────────────────────────────────────────────────
 @st.cache_data(ttl=1800)
