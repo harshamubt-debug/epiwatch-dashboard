@@ -50,7 +50,7 @@ def call_grok(messages, system_prompt):
             "Content-Type": "application/json",
         }
         payload = {
-            "model": "grok-beta",
+            "model": "grok-2-latest",
             "messages": [{"role": "system", "content": system_prompt}] + messages,
             "max_tokens": 1500,
         }
