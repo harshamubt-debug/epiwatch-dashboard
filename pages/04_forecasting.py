@@ -129,8 +129,8 @@ with tab1:
                 name="95% Confidence",
             ))
             # Cutoff line
-            fig.add_vline(x=cutoff, line_dash="dash", line_color="#f85149",
-                          annotation_text="Today", annotation_font_color="#f85149")
+        fig.add_vline(x=str(cutoff), line_dash="dash", line_color="#f85149",
+              annotation_text="Today", annotation_font_color="#f85149")
 
             fig.update_layout(
                 title=f"{country_sel} — {metric_sel.title()} Forecast ({forecast_days} days)",
