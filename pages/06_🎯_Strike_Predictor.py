@@ -7,9 +7,7 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Strike Predictor — EpiWatch", page_icon="🎯", layout="wide")
 
-st.markdown("## 🎯 Epidemic Strike Predictor")
-st.caption("ML-powered epidemic intelligence using 2 years of historical wave pattern analysis. Predicts WHEN, WHERE and HOW HARD the next outbreak will strike.")
-
+st.markdown("## 🎯 COVID Epidemic Cycle Analyser")st.caption("Statistical wave pattern analysis using 2 years of historical COVID-19 data (2020–2023). Detects epidemic cycles and estimates when the next outbreak window may occur.")
 from utils.data_fetcher import get_all_countries, get_country_historical
 
 # ── PREDICTION ENGINE ──────────────────────────────────────────────────────────
