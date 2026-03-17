@@ -40,14 +40,25 @@ def predict_strike(country_hist, country_name):
     days_since_peak = (df["date"].iloc[-1] - last_peak_date).days
     days_to_next    = max(0, avg_interval - days_since_peak)
     next_strike     = datetime.now() + timedelta(days=days_to_next)
+    
+recent = df["7day"].iloc[-14:].mean()
+older  = df["7day"].iloc[-30:-14].mean()
+if recent < 100 and older < 100:
+    trend = "Stable"
+elif recent > older * 1.1:
+    trend = "Rising"
+elif recent < older * 0.9:
+    trend = "Falling"
+else:
+    trend = "Stable"
 
-    recent = df["7day"].iloc[-14:].mean()
-    older  = df["7day"].iloc[-30:-14].mean()
-    trend  = "Rising" if recent > older * 1.1 else "Falling" if recent < older * 0.9 else "Stable"
-
-    trend_score = {"Rising": 70, "Stable": 40, "Falling": 20}.get(trend, 40)
-    time_score  = max(0, 100 - days_to_next) if days_to_next < 100 else 0
-    risk_score  = int(0.6 * trend_score + 0.4 * time_score)
+   trend_score = {"Rising": 70, "Stable": 40, "Falling": 20}.get(trend, 40)
+time_score  = max(0, 100 - days_to_next) if days_to_next < 100 else 0
+current_avg = int(df["7day"].iloc[-1])
+if current_avg < 100:
+    risk_score = max(10, int(time_score * 0.3))
+else:
+    risk_score = int(0.6 * trend_score + 0.4 * time_score)
 
     projected = int(df["7day"].max() * 0.75) if len(peaks) == 0 else int(np.mean(df["7day"].values[peaks]) * 0.8)
 
