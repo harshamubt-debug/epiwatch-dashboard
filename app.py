@@ -38,12 +38,14 @@ st.sidebar.divider()
 st.sidebar.markdown("**Navigation**")
 st.sidebar.markdown("🏠 Home / Overview")
 st.sidebar.markdown("🌍 Global Disease Map")
-st.sidebar.markdown("🇮🇳 India Health Dashboard")
+st.sidebar.markdown("🇮🇳 India Focus")
 st.sidebar.markdown("🚨 Outbreak Alerts")
-st.sidebar.markdown("📈 Forecasting & Trends")
+st.sidebar.markdown("🦠 Flu Surveillance")
 st.sidebar.markdown("🤖 AI Analyst")
-st.sidebar.markdown("🎯 Strike Predictor")
+st.sidebar.markdown("🎯 COVID Cycle Analyser")
 st.sidebar.markdown("🦟 Dengue Tracker")
+st.sidebar.markdown("🦟 Dengue Predictor")
+st.sidebar.markdown("🧬 Disease Intelligence")
 st.sidebar.divider()
 st.sidebar.markdown("**Data Sources**")
 sources = ["Disease.sh API", "CDC Open Data", "WHO GHO", "CDC FluView",
@@ -52,7 +54,7 @@ for s in sources:
     st.sidebar.markdown(f"<span style='font-size:0.75rem;color:#3fb950'>● {s}</span>", unsafe_allow_html=True)
 
 st.markdown("## 🦠 EpiWatch — Disease Surveillance Dashboard")
-st.caption("Global health intelligence from 9 authoritative sources. COVID-19 data: complete historical records (Jan 2020 – Dec 2023). Dengue & outbreak alerts: live.")
+st.caption("Unified disease intelligence from 12 authoritative sources. COVID-19: complete historical record (Jan 2020 – Dec 2023). Dengue, Flu & outbreak alerts: live 2026.")
 
 from utils.data_fetcher import get_global_summary, get_outbreak_alerts, get_top_countries
 import pandas as pd
